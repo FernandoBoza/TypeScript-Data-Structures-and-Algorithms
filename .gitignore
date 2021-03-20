@@ -114,3 +114,6 @@ exports
 build
 package-lock.json
 /latest.dump
+
+
+.idea/**
