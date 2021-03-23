@@ -1,6 +1,6 @@
-type Vertex = string
+type Vertex = string;
 
-export default class Graph {
+export default class Graph<T> {
     constructor(public adjacencyList = {}) {}
 
     public addVertex = (vertex: Vertex): void => {
@@ -62,21 +62,3 @@ export default class Graph {
         }
     }
 }
-
-let g = new Graph();
-g.addVertex('A')
-g.addVertex('B')
-g.addVertex('C')
-g.addVertex('D')
-g.addVertex('E')
-g.addVertex('F')
-g.addEdge('A','B');
-g.addEdge('A','C');
-g.addEdge('B','D');
-g.addEdge('C','E');
-g.addEdge('D','E');
-g.addEdge('D','F');
-g.addEdge('E','F');
-
-g.DFS_recursive('A')
-g.DFS_iterative('A')
