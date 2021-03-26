@@ -53,12 +53,4 @@ export default class Graph<T> {
         dfs(vertex)
         return results
     }
-
-    public DFS_iterative(vertex: Vertex) {
-        let callStack = [];
-        callStack.push(vertex)
-        while(callStack.length >= 1) {
-            let v = callStack.pop();
-        }
-    }
 }
