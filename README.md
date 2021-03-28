@@ -10,15 +10,13 @@ Robert Sedgewick, Kevin Wayne, Aditya Bhargava
 
 **Sorting**
 - Merge Sort: Top Down | Bottom Up
-- Quick Sort: Coming Soon
+- Quick Sort: Coming Soon, 2 , 3 way variant
 
 **Searching**
-- Breadth First Search: Coming Soon
-- Depth First Search: Coming Soon
 - Binary Search: Last index of T or -1 
 
 **Data Structures**
 - Binary Search Tree: Coming Soon
 - Un/Weighted & Un/Directed Graphs: IP
-- Stacks & Queues: Coming Soon
 - Min/Max Heap: Coming Soon
+- Stacks & Queues: Coming Soon
