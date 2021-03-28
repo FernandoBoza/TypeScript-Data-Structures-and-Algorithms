@@ -92,9 +92,3 @@ export function MergeSortBottomUp(list){
     return sort(list)
 }
 
-let numArr = [38,27,43,3,9,82,10];
-let strArr = ["e","z","a","c","b"];
-console.log(MergeSortBottomUp(numArr))
-console.log(MergeSort(numArr))
-console.log(MergeSortBottomUp(strArr))
-console.log(MergeSort(strArr))
