@@ -9,17 +9,14 @@ Robert Sedgewick, Kevin Wayne, Aditya Bhargava
 **Sorting**
 - Merge Sort: Top Down | Bottom Up
 - Quick Sort: Coming Soon
-- Priority Queues: Coming Soon
 
 **Searching**
 - Breadth First Search: Coming Soon
 - Depth First Search: Coming Soon
-- Binary Search: Return last index of T
+- Binary Search: Last index of T or -1 
 
 **Data Structures**
-- Un/Weighted Graphs
-- Min Heap: Coming Soon
-- Max Heap: Coming Soon
-- Un/Directed Graphs: Coming Soon
-- AVL Tree: Coming Soon
 - Binary Search Tree: Coming Soon
+- Un/Weighted & Un/Directed Graphs: IP
+- Stacks & Queues: Coming Soon
+- Min/Max Heap: Coming Soon
