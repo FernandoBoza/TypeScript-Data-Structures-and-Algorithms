@@ -7,7 +7,7 @@ Robert Sedgewick, Kevin Wayne, Aditya Bhargava
 <img alt="TypeScript Data Structures Algorithms" src="https://strapi-next-s3.s3.amazonaws.com/image_8a84b91b5f.svg"  height="300"/>
 
 **Sorting**
-- Merge Sort
+- Merge Sort: Top Down | Bottom Up
 - Quick Sort: Coming Soon
 - Priority Queues: Coming Soon
 
