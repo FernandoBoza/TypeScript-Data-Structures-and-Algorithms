@@ -5,8 +5,6 @@
 */
 
 export default function MergeSort <T>(items: T[]): T[] {
-    return divide(items);
-
     function divide <T>(items: T[]): T[] {
         let middle = Math.ceil(items.length / 2),
             low = items.slice(0, middle),
@@ -48,6 +46,7 @@ export default function MergeSort <T>(items: T[]): T[] {
         }
         return combined;
     }
+    return divide(items);
 }
 
 /*
@@ -57,12 +56,45 @@ export default function MergeSort <T>(items: T[]): T[] {
 */
 
 export function MergeSortBottomUp(list){
-    return list
+    function merge(list, aux, low, middle, high){
+        for(let k = low; k <= high; k++){
+            aux[k] = list[k]
+        }
+
+        let i = low,
+            j = middle + 1;
+
+        for(let k = low; k <= high; k++){
+            if(i > middle){
+                list[k] = aux[j++];
+            } else if (j  > high) {
+                list[k] = aux[i++]
+            } else if (aux[j] < aux[i]) {
+                list[k] = aux[j++]
+            } else {
+                list[k] = aux[i++]
+            }
+        }
+        return list
+    }
+    function sort(list){
+        let n = list.length,
+            aux = new Array(n);
+        for(let len = 1; len < n; len *= 2){
+            for(let low = 0; low < n - len; low += len + len){
+                let middle = low + len-1,
+                    high = Math.min(low+len+len-1, n-1);
+                merge(list, aux, low, middle, high);
+            }
+        }
+        return list
+    }
+    return sort(list)
 }
 
-let numArr = [38,27,43,3,9,82,10]
-let strArr = ["e","z","a","c","b"]
-let sortNumArr = MergeSortBottomUp(numArr)
-let sortStrArr = MergeSortBottomUp(strArr)
-sortStrArr
-sortNumArr
+let numArr = [38,27,43,3,9,82,10];
+let strArr = ["e","z","a","c","b"];
+console.log(MergeSortBottomUp(numArr))
+console.log(MergeSort(numArr))
+console.log(MergeSortBottomUp(strArr))
+console.log(MergeSort(strArr))
