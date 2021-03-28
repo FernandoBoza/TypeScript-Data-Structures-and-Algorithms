@@ -11,6 +11,10 @@ Robert Sedgewick, Kevin Wayne, Aditya Bhargava
 - Quick Sort
 - Priority Queues
 
+**Searching**
+- Breadth First Search
+- Depth First Search
+- Binary Search
 
 **Data Structures**
 - Min Heap
