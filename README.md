@@ -14,7 +14,7 @@ Robert Sedgewick, Kevin Wayne, Aditya Bhargava
 **Searching**
 - Breadth First Search: Coming Soon
 - Depth First Search: Coming Soon
-- Binary Search: Coming Soon
+- Binary Search: Return last index of T
 
 **Data Structures**
 - Un/Weighted Graphs
