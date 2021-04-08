@@ -1,28 +1,60 @@
-class TreeNode<T> {
+class Node<T> {
     constructor(
-        public data: TreeNode<T>,
-        public left: TreeNode<T> = null,
-        public right: TreeNode<T> = null){
+        public data: Node<T> = null,
+        public left: Node<T> = null,
+        public right: Node<T> = null){
     }
     duplicates = 0;
 }
 
 export default class BinarySearchTree<T> {
-    constructor(initializer?: any){
-        if(initializer){
-            this.addNode(initializer);
-        }
+    constructor(initializer?: any) {
+        if (initializer) this.add(initializer);
     }
-    private _root: TreeNode<T>;
+
+    private _root: Node<T> = null;
     public size = 0;
     public isEmpty = true;
 
-    get root(): TreeNode<T> {
+    get root(): Node<T> {
         return this._root;
     }
 
-    public addNode = (data) => {
-
+    public add = (data, comp?) => {
+        const newNode = new Node(data);
+        if(!!!this._root) {
+            this._root = newNode;
+            this.size += 1
+            this.isEmpty = false
+            return;
+        } else {
+            this.size += 1
+            let currentNode = this._root;
+            let traversing = true;
+            while (traversing) {
+                if (currentNode.data[comp] == newNode.data[comp]) {
+                    currentNode.duplicates += 1;
+                    traversing = false;
+                    return this;
+                } else if (newNode.data[comp] < currentNode.data[comp]) {
+                    if (currentNode.left == null) {
+                        currentNode.left = newNode;
+                        traversing = false;
+                        return true;
+                    } else {
+                        currentNode = currentNode.left;
+                    }
+                } else if (newNode.data[comp] > currentNode.data[comp]) {
+                    if (currentNode.right == null) {
+                        currentNode.right = newNode;
+                        traversing = false;
+                        return true;
+                    } else {
+                        currentNode = currentNode.right;
+                    }
+                }
+            }
+        }
     }
 
     public delete = (data) => {
@@ -31,13 +63,13 @@ export default class BinarySearchTree<T> {
     }
 }
 
-class User {
-    constructor(public fName: string, public lName){}
-}
-
-const newUser = new User("Fer", "Boza");
 
 
-const bst = new BinarySearchTree(newUser)
+const bst = new BinarySearchTree({f: "alpha", l: "omega"})
 
-console.log(bst)
+let user1 = {f: "fer", l: "boz"},
+    user2 = {f: "zerr", l: "boza"}
+
+bst.add(user1, 'f')
+bst.add(user2,'f')
+// bst.root.right.right.data.l
