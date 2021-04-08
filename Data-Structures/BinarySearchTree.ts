@@ -6,16 +6,20 @@ class TreeNode<T> {
 export default class BinarySearchTree<T> {
     constructor(initializer?: any){
         if(initializer){
-            this.root = new TreeNode(initializer);
+            this.addNode(initializer);
         }
     }
     public root: TreeNode<T>;
+    public size = 0;
+    public isEmpty = true;
 
     public addNode = (data): void | TreeNode<T> => {
         if (!this.root) return this.root = new TreeNode(data);
         const newNode = new TreeNode(data),
             currentNode = this.root;
 
+        this.size += 1
+        this.isEmpty = false;
         while(true){
             if(data < currentNode.data && currentNode.left == null){
                 currentNode.left = newNode;
