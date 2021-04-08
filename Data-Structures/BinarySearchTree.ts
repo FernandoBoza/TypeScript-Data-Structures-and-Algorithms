@@ -53,32 +53,48 @@ export default class BinarySearchTree<T> {
         }
     }
 
-    public delete(data): void {
-        this._root = this.deleteRecursively(this._root, data);
+    public find = (data, comp) => {
+        if(!this._root) return false;
+        let currentNode = this._root,
+            found = false;
+
+        while(currentNode && !found){
+            if(data < currentNode.data[comp]) {
+                currentNode = currentNode.left
+            } else if (data > currentNode.data[comp]){
+                currentNode = currentNode.right;
+            } else {
+                found = true
+            }
+        }
+        return found;
     }
 
-    private deleteRecursively(_root: Node<T>, data): Node<T> {
+    public delete(data, comp): void {
+        this._root = this.deleteRecursively(this._root, data, comp);
+    }
+
+    private deleteRecursively(_root: Node<T>, data, comp): Node<T> {
         if (!_root) return null;
 
-        if (_root.data === data) {
-            _root = this.deleteNode(_root);
-        } else if (data < _root.data) {
-            _root.left = this.deleteRecursively(_root.left, data);
+        if (_root.data[comp] === data) {
+            _root = this.deleteNode(_root, comp);
+        } else if (data < _root.data[comp]) {
+            _root.left = this.deleteRecursively(_root.left, data, comp);
         } else {
-            _root.right = this.deleteRecursively(_root.right, data);
+            _root.right = this.deleteRecursively(_root.right, data, comp);
         }
-
         return _root;
     }
 
-    private deleteNode(_root: Node<T>): Node<T> {
+    private deleteNode(_root: Node<T>, comp): Node<T> {
         if (_root.left === null && _root.right === null) {
             return null;
         } else if (_root.left !== null && _root.right !== null) {
             const successorNode = this.getSuccessor(_root.left);
             const successorValue = successorNode.data;
 
-            _root = this.deleteRecursively(_root, successorValue);
+            _root = this.deleteRecursively(_root, successorValue, comp);
             _root.data = successorValue;
 
             return _root;
@@ -89,21 +105,14 @@ export default class BinarySearchTree<T> {
         return _root.right;
     }
 
-    private getSuccessor(node: TreeNode): TreeNode {
-        let currentNode: TreeNode = node;
-
+    private getSuccessor(node: Node<T>): Node<T> {
+        let currentNode: Node<T> = node;
         while (currentNode) {
-            if (currentNode.right === null) {
-                break;
-            }
-
+            if (!currentNode.right) break;
             currentNode = currentNode.right;
         }
-
         return currentNode;
     }
-
-
 }
 
 
@@ -116,4 +125,5 @@ bst.add({f: "ber", l: "boz"},'f')
 bst.add({f: "dillon", l: "omega"},'f')
 bst.add({f: "aerr", l: "boza"},'f')
 bst.add({f: "clpha", l: "omega"},'f')
-bst
+bst.delete("aerr", "f")
+console.log(bst.find("clpha","f"))
