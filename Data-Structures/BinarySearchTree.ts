@@ -1,5 +1,9 @@
 class TreeNode<T> {
-    constructor(public data: TreeNode<T>, public left: TreeNode<T> = null, public right: TreeNode<T> = null){}
+    constructor(
+        public data: TreeNode<T>,
+        public left: TreeNode<T> = null,
+        public right: TreeNode<T> = null){
+    }
     duplicates = 0;
 }
 
@@ -9,26 +13,31 @@ export default class BinarySearchTree<T> {
             this.addNode(initializer);
         }
     }
-    public root: TreeNode<T>;
+    private _root: TreeNode<T>;
     public size = 0;
     public isEmpty = true;
 
-    public addNode = (data): void | TreeNode<T> => {
-        if (!this.root) return this.root = new TreeNode(data);
-        const newNode = new TreeNode(data),
-            currentNode = this.root;
+    get root(): TreeNode<T> {
+        return this._root;
+    }
 
-        this.size += 1
-        this.isEmpty = false;
-        while(true){
-            if(data < currentNode.data && currentNode.left == null){
-                currentNode.left = newNode;
-                return;
-            }
-        }
+    public addNode = (data) => {
+
     }
 
     public delete = (data) => {
-
+        this.size -= 1
+        this.isEmpty = this.size == 0;
     }
 }
+
+class User {
+    constructor(public fName: string, public lName){}
+}
+
+const newUser = new User("Fer", "Boza");
+
+
+const bst = new BinarySearchTree(newUser)
+
+console.log(bst)
