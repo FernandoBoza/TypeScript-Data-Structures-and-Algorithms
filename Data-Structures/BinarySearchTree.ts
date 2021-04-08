@@ -25,25 +25,25 @@ export default class BinarySearchTree<T> {
         if(!data) throw new Error("argument is null")
         const newNode = new Node(data);
         this.size += 1
-        this.isEmpty = false
-        if(!this._root) {
+        if(this.isEmpty) {
+            this.isEmpty = false;
             this._root = newNode;
             return this;
         }
         let currentNode = this._root;
-        while (true) {
+        while (currentNode) {
             if (currentNode.data[comp] == newNode.data[comp]) {
                 currentNode.duplicates += 1;
                 return this;
             } else if (newNode.data[comp] < currentNode.data[comp]) {
-                if (currentNode.left == null) {
+                if (!currentNode.left) {
                     currentNode.left = newNode;
                     return true;
                 } else {
                     currentNode = currentNode.left;
                 }
             } else if (newNode.data[comp] > currentNode.data[comp]) {
-                if (currentNode.right == null) {
+                if (!currentNode.right) {
                     currentNode.right = newNode;
                     return true;
                 } else {
@@ -52,6 +52,58 @@ export default class BinarySearchTree<T> {
             }
         }
     }
+
+    public delete(data): void {
+        this._root = this.deleteRecursively(this._root, data);
+    }
+
+    private deleteRecursively(_root: Node<T>, data): Node<T> {
+        if (!_root) return null;
+
+        if (_root.data === data) {
+            _root = this.deleteNode(_root);
+        } else if (data < _root.data) {
+            _root.left = this.deleteRecursively(_root.left, data);
+        } else {
+            _root.right = this.deleteRecursively(_root.right, data);
+        }
+
+        return _root;
+    }
+
+    private deleteNode(_root: Node<T>): Node<T> {
+        if (_root.left === null && _root.right === null) {
+            return null;
+        } else if (_root.left !== null && _root.right !== null) {
+            const successorNode = this.getSuccessor(_root.left);
+            const successorValue = successorNode.data;
+
+            _root = this.deleteRecursively(_root, successorValue);
+            _root.data = successorValue;
+
+            return _root;
+        } else if (_root.left !== null) {
+            return _root.left;
+        }
+
+        return _root.right;
+    }
+
+    private getSuccessor(node: TreeNode): TreeNode {
+        let currentNode: TreeNode = node;
+
+        while (currentNode) {
+            if (currentNode.right === null) {
+                break;
+            }
+
+            currentNode = currentNode.right;
+        }
+
+        return currentNode;
+    }
+
+
 }
 
 
@@ -59,13 +111,9 @@ interface User {
     f : string,
     l : string
 }
-
-let user1: User = {f: "ber", l: "boz"},
-    user2: User = {f: "aerr", l: "boza"},
-    user3: User = {f: "clpha", l: "omega"}
-
-const bst = new BinarySearchTree<User>(user1)
-bst.add(user2, 'f')
-bst.add(user3,'f')
-
-bst.root
+const bst = new BinarySearchTree<User>()
+bst.add({f: "ber", l: "boz"},'f')
+bst.add({f: "dillon", l: "omega"},'f')
+bst.add({f: "aerr", l: "boza"},'f')
+bst.add({f: "clpha", l: "omega"},'f')
+bst
