@@ -29,6 +29,7 @@ export default class BinarySearchTree<T> {
             return;
         } else {
             this.size += 1
+            this.isEmpty = false
             let currentNode = this._root;
             let traversing = true;
             while (traversing) {
@@ -64,12 +65,17 @@ export default class BinarySearchTree<T> {
 }
 
 
+interface User {
+    f : string,
+    l : string
+}
 
-const bst = new BinarySearchTree({f: "alpha", l: "omega"})
+let user1: User = {f: "fer", l: "boz"},
+    user2: User = {f: "zerr", l: "boza"},
+    user3: User = {f: "alpha", l: "omega"}
 
-let user1 = {f: "fer", l: "boz"},
-    user2 = {f: "zerr", l: "boza"}
-
+const bst = new BinarySearchTree<User>(user1)
 bst.add(user1, 'f')
 bst.add(user2,'f')
-// bst.root.right.right.data.l
+
+bst
