@@ -20,47 +20,37 @@ export default class BinarySearchTree<T> {
         return this._root;
     }
 
+    // O (log n)
     public add = (data, comp?) => {
+        if(!data) throw new Error("argument is null")
         const newNode = new Node(data);
-        if(!!!this._root) {
+        this.size += 1
+        this.isEmpty = false
+        if(!this._root) {
             this._root = newNode;
-            this.size += 1
-            this.isEmpty = false
-            return;
-        } else {
-            this.size += 1
-            this.isEmpty = false
-            let currentNode = this._root;
-            let traversing = true;
-            while (traversing) {
-                if (currentNode.data[comp] == newNode.data[comp]) {
-                    currentNode.duplicates += 1;
-                    traversing = false;
-                    return this;
-                } else if (newNode.data[comp] < currentNode.data[comp]) {
-                    if (currentNode.left == null) {
-                        currentNode.left = newNode;
-                        traversing = false;
-                        return true;
-                    } else {
-                        currentNode = currentNode.left;
-                    }
-                } else if (newNode.data[comp] > currentNode.data[comp]) {
-                    if (currentNode.right == null) {
-                        currentNode.right = newNode;
-                        traversing = false;
-                        return true;
-                    } else {
-                        currentNode = currentNode.right;
-                    }
+            return this;
+        }
+        let currentNode = this._root;
+        while (true) {
+            if (currentNode.data[comp] == newNode.data[comp]) {
+                currentNode.duplicates += 1;
+                return this;
+            } else if (newNode.data[comp] < currentNode.data[comp]) {
+                if (currentNode.left == null) {
+                    currentNode.left = newNode;
+                    return true;
+                } else {
+                    currentNode = currentNode.left;
+                }
+            } else if (newNode.data[comp] > currentNode.data[comp]) {
+                if (currentNode.right == null) {
+                    currentNode.right = newNode;
+                    return true;
+                } else {
+                    currentNode = currentNode.right;
                 }
             }
         }
-    }
-
-    public delete = (data) => {
-        this.size -= 1
-        this.isEmpty = this.size == 0;
     }
 }
 
@@ -70,12 +60,12 @@ interface User {
     l : string
 }
 
-let user1: User = {f: "fer", l: "boz"},
-    user2: User = {f: "zerr", l: "boza"},
-    user3: User = {f: "alpha", l: "omega"}
+let user1: User = {f: "ber", l: "boz"},
+    user2: User = {f: "aerr", l: "boza"},
+    user3: User = {f: "clpha", l: "omega"}
 
 const bst = new BinarySearchTree<User>(user1)
-bst.add(user1, 'f')
-bst.add(user2,'f')
+bst.add(user2, 'f')
+bst.add(user3,'f')
 
-bst
+bst.root
