@@ -22,8 +22,8 @@ export default function MergeSort <T>(items: T[]): T[] {
             combined = [];
 
         while (indexLow < low.length || indexHigh < high.length) {
-            let lowItem = low[indexLow];
-            let highItem = high[indexHigh];
+            let lowItem = low[indexLow],
+                highItem = high[indexHigh];
             if (lowItem) {
                 if (!highItem) {
                     combined.push(lowItem);
@@ -65,14 +65,10 @@ export function MergeSortBottomUp(list){
             j = middle + 1;
 
         for(let k = low; k <= high; k++){
-            if(i > middle){
-                list[k] = aux[j++];
-            } else if (j  > high) {
-                list[k] = aux[i++]
-            } else if (aux[j] < aux[i]) {
-                list[k] = aux[j++]
-            } else {
-                list[k] = aux[i++]
+            if(i > middle)              { list[k] = aux[j++];
+            } else if (j  > high)       { list[k] = aux[i++]
+            } else if (aux[j] < aux[i]) { list[k] = aux[j++]
+            } else                      { list[k] = aux[i++]
             }
         }
         return list
