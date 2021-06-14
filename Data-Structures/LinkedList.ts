@@ -4,7 +4,9 @@ class Node<T> {
 
 export default class SinglyLinkedList <T>{
     constructor(init?: T){
-        this._root = new Node(init);
+        if(init){
+           this._root = new Node(init)
+        }
     }
     private _root: Node<T>;
 
