@@ -5,7 +5,7 @@ class Node<T> {
 export default class SinglyLinkedList <T>{
     constructor(init?: T){
         if(init){
-           this._root = new Node(init)
+            this._root = new Node(init)
         }
     }
     private _root: Node<T>;
@@ -44,4 +44,3 @@ export default class SinglyLinkedList <T>{
 const ll = new SinglyLinkedList();
 ll.insertInEnd(10)
 // ll.insertInEnd(20)
-ll
