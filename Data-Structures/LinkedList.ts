@@ -4,7 +4,9 @@ class Node<T> {
 
 export default class SinglyLinkedList <T>{
     constructor(init?: T){
-        this._root = new Node(init);
+        if(init){
+            this._root = new Node(init)
+        }
     }
     private _root: Node<T>;
 
@@ -26,10 +28,10 @@ export default class SinglyLinkedList <T>{
 
         // if there are already nodes present
         let current =  this._root;
-        while(current.next) {
+        while(current?.next) {
             current = current.next;
         }
-        current.next = newNode;
+        if(current) current.next = newNode;
         this.size++;
         return this._root
     }
@@ -42,4 +44,4 @@ export default class SinglyLinkedList <T>{
 const ll = new SinglyLinkedList();
 ll.insertInEnd(10)
 // ll.insertInEnd(20)
-ll
+console.log(ll)
