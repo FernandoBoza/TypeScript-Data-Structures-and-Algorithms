@@ -2,8 +2,8 @@
   "name": "typeScriptdataStructuresalgorithms",
   "version": "1.0.0",
   "main": "index.js",
-  "repository": "https://github.com/FernandoBoza/TypeScript-Data-Structures-and-Algorithms.git",
   "author": "FernandoBoza",
   "license": "MIT",
+  "type": "module",
   "description": "A TypeScript library for data structures and search/sort algorithms. Still in development phase."
 }
