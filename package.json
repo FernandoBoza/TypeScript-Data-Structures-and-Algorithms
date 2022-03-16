@@ -5,5 +5,5 @@
   "repository": "https://github.com/FernandoBoza/TypeScript-Data-Structures-and-Algorithms.git",
   "author": "FernandoBoza",
   "license": "MIT",
-  "description": "A TypeScript library for data structures and search/sort algorithms. Still in testing phase."
+  "description": "A TypeScript library for data structures and search/sort algorithms. Still in development phase."
 }
