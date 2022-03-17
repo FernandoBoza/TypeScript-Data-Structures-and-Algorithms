@@ -1,5 +1,6 @@
-import BinarySearch from './Algorithms/Search/BinarySearch'
+import { BinarySearch, StringSearch } from './Algorithms/Search';
+import { MergeSort, MergeSortBottomUp } from './Algorithms/Sort';
 
-BinarySearch([ 3, 9, 10, 27, 38, 43, 82 ], 3)
-BinarySearch([ 'a', 'b', 'c', 'e','z' ], "e")
-BinarySearch([ 'a', 'b', 'c', 'e','z' ], "f")
+// console.log(MergeSort([7, 42, 10, 32, 61, 15, 0, 21, 2]));
+
+
