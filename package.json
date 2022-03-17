@@ -4,6 +4,5 @@
   "main": "index.js",
   "author": "FernandoBoza",
   "license": "MIT",
-  "type": "module",
   "description": "A TypeScript library for data structures and search/sort algorithms. Still in development phase."
 }
