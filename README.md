@@ -16,7 +16,7 @@ Robert Sedgewick, Kevin Wayne, Aditya Bhargava
 - Binary Search: Last index of T or -1 
 
 **Data Structures**
-- Binary Search Tree: Coming Soon
+- Binary Search Tree
 - Un/Weighted & Un/Directed Graphs: IP
-- Min/Max Heap: Coming Soon
-- Stacks & Queues: Coming Soon
+- Binary Heap
+- Stacks & Queues

@@ -3,7 +3,6 @@
 * Time complexity: O(n log n)
 * Space complexity: O(n)
 */
-
 export const mergeSort = <T>(items: T[]): T[] => {
     function divide <T>(items: T[]): T[] {
         let middle = Math.ceil(items.length / 2),
@@ -51,11 +50,13 @@ export const mergeSort = <T>(items: T[]): T[] => {
 }
 
 /*
+* @description
 * Bottom-Up Iterative Merge Sort
+* @description
 * Time complexity: O(n log n)
+* @description
 * Space complexity: O(n)
 */
-
 export const mergeSortBottomUp = list => {
     function merge(list, aux, low, middle, high){
         for(let k = low; k <= high; k++){

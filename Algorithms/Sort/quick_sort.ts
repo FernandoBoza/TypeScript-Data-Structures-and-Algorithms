@@ -1,4 +1,4 @@
-function partition(items: any, left: any, right: any) {
+const partition = (items: any, left: any, right: any) => {
     const pivot = items[Math.floor((right + left) / 2)];//middle element
     while (left <= right) {
         while (items[left] < pivot) {
@@ -16,8 +16,8 @@ function partition(items: any, left: any, right: any) {
     return left;
 }
 
-const quickSort = (items, left = 0, right = items.length - 1) => {
-    let index;
+export const quickSort = (items, left = 0, right = items.length - 1) => {
+    let index: number;
     if (items.length > 1) {
         index = partition(items, left, right); //index returned from partition
         if (left < index - 1) { //more elements on the left side of the pivot
@@ -30,4 +30,3 @@ const quickSort = (items, left = 0, right = items.length - 1) => {
     return items;
 }
 
-export default quickSort

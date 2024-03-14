@@ -4,7 +4,6 @@
  * O(n log n)
  * 
  */
-
 function merge(arr1, arr2) {
     let results = [],
         i = 0,

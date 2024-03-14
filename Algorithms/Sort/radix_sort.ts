@@ -12,17 +12,22 @@ const mostDigits = (nums) => {
     return maxDigits;
 }
 
-module.exports = radixSort = (arr) => {
-    // * Define a function thats accepts list of numbers     
-    // * Store how many digits the largest number has
-    // * Loop from K = 0 up to this largest number of digits
-    // * For each iteration of the loop:
-    //      * Create nuckets for each digit ( 0 to 9 )
-    //      * Place each number in the corresponding bucket based on its Kth digit
-    // * Replace our exisiting array with values in our buckets, 
-    // ** starting with 0 and going up to 9
-    // *  return list at the end
-
+/**
+* @description
+* Define a function that's accepts list of numbers
+*
+* @description
+* Store how many digits the largest number has
+* Loop from K = 0 up to this largest number of digits
+ @description
+ * For each iteration of the loop:
+  * @description
+ * Create buckets for each digit ( 0 to 9 )
+ * Place each number in the corresponding bucket based on its Kth digit
+* Replace our existing array with values in our buckets,
+* starting with 0 and going up to 9
+*/
+export const radixSort = (arr) => {
     let maxDigitCount = mostDigits(arr);
     for (let k = 0; k < maxDigitCount; k++) {
         let buckets = Array.from({ length: 10 }, () => [])
