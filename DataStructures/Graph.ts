@@ -54,3 +54,21 @@ export default class Graph<T> {
         return results
     }
 }
+
+const g = new Graph();
+g.addVertex("Miami")
+g.addVertex("LA")
+g.addVertex("NYC")
+g.addVertex("London")
+g.addVertex("Paris")
+g.addEdge('LA', 'Miami')
+g.addEdge("London", 'Paris')
+g.addEdge("Miami", 'Paris')
+g.addEdge("NYC", 'Miami')
+g.addEdge("NYC", 'Paris')
+g.addEdge("NYC", 'London')
+g.addEdge("NYC", 'LA')
+g.deleteEdge('Paris', 'Miami')
+g.deleteVertex('NYC');
+
+console.log(g.adjacencyList)

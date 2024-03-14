@@ -4,11 +4,12 @@
 * Space complexity: O(n)
 */
 
-export default function MergeSort <T>(items: T[]): T[] {
+export const mergeSort = <T>(items: T[]): T[] => {
     function divide <T>(items: T[]): T[] {
-        let middle = Math.ceil(items.length / 2);
-        let low = items.slice(0, middle);
-        let high = items.slice(middle);
+        let middle = Math.ceil(items.length / 2),
+            low = items.slice(0, middle),
+            high = items.slice(middle);
+
         if (middle > 1) {
             low = divide(low);
             high = divide(high);
@@ -16,13 +17,14 @@ export default function MergeSort <T>(items: T[]): T[] {
         return combine(low, high);
     }
     function combine<T>(low: T[], high: T[]): T[] {
-        let indexLow = 0;
-        let indexHigh = 0;
-        let combined = [];
+        let indexLow = 0,
+            indexHigh = 0,
+            combined = [];
 
         while (indexLow < low.length || indexHigh < high.length) {
-            let lowItem = low[indexLow];
-            let highItem = high[indexHigh];
+            let lowItem = low[indexLow],
+                highItem = high[indexHigh];
+
             if (lowItem) {
                 if (!highItem) {
                     combined.push(lowItem);
@@ -54,7 +56,7 @@ export default function MergeSort <T>(items: T[]): T[] {
 * Space complexity: O(n)
 */
 
-export function MergeSortBottomUp(list){
+export const mergeSortBottomUp = list => {
     function merge(list, aux, low, middle, high){
         for(let k = low; k <= high; k++){
             aux[k] = list[k]
@@ -86,9 +88,3 @@ export function MergeSortBottomUp(list){
     }
     return sort(list)
 }
-
-// console.log('hello')
-let a = MergeSort([4,1])
-// MergeSort([7, 42, 10, 32, 61, 15,21, 2])
-
-a

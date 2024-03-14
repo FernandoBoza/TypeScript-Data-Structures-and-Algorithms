@@ -1,6 +1,7 @@
-import { BinarySearch, StringSearch } from './Algorithms/Search';
-import { MergeSort, MergeSortBottomUp } from './Algorithms/Sort';
+import { SinglyLinkedList, BinarySearchTree } from './DataStructures';
 
-// console.log(MergeSort([7, 42, 10, 32, 61, 15, 0, 21, 2]));
+let sLL = new SinglyLinkedList('Fernando');
+let bst = new BinarySearchTree('Fernando')
 
-
+sLL.push('Luis')
+bst.add("Luis", "f")
